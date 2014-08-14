@@ -18,3 +18,47 @@ You should see a very basic interface with a file upload input box. Along with b
 The approach here is to chunk the files in the client side into small chunks of 100KBs and upload them in sequence, and the server then combines them on receiving all of the chunks.
 
 
+Basic Usage ::
+
+import org.sigmah.client.RobustUploaderComposite;
+import org.sigmah.shared.RobustUploaderEvent;
+import org.sigmah.shared.RobustUploaderEventHandler;
+
+
+RobustUploaderComposite RobustUploaderCompositeInstance = new RobustUploaderComposite();
+RootPanel.get().add(RobustUploaderCompositeInstance);
+
+
+String downLoadToken=null;
+
+//Event Handlers for all major events
+RobustUploaderCompositeInstance.mainBus.addHandler(RobustUploaderEvent.TYPE, new RobustUploaderEventHandler(){
+		public void onEvent(RobustUploaderEvent event){
+
+		if(event.getEventType() == RobustUploaderUtils.ROBUST_UPLOADER_EVENTS.UPLOAD_SUCCESSFUL){
+		downloadToken = event.getDataObject().get("DOWNLOAD_TOKEN");
+		}
+		//Other Supported Events
+		// UPLOAD_START, 
+		// UPLOAD_SUCCESSFUL, 
+		// UPLOAD_FAIL, 
+		// UPLOAD_PAUSED, 
+		// UPLOAD_RESUMED, 
+		// UPLOAD_CONNECTION_DISRUPTED, //Sleep for 5 seconds and then try again !!        
+		// UPLOAD_CHUNK_START, 
+		// UPLOAD_ROLLBACK, // Required to be sure that we didnot loose any data !!
+		//UPLOAD_CHUNK_RESPONSE_RECEIVED
+
+		}
+		});
+
+
+
+//To get the file stream corresponding to the token once the upload is finished 
+import org.sigmah.shared.Downloader;
+File f = Downloader.DownloadFileFromToken(downloadToken);
+
+// This approach is interesting because this completely separates the Upload and Storage from the Data Privacy/Protection layer.
+// For now I use only the filesystem as the Data Store, but the architecture allows us to have adapters for other forms of data storages (Amazon S3, In-Memory, etc)
+// and someone can use this library to just upload the file using this library, and the internally before serving the file again can do their own layer of access checks before 
+// giving it to the users
