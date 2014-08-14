@@ -66,6 +66,14 @@ public class RobustUploaderComposite extends Composite {
 		composite.setProgress(progress);
 
 	}
+
+	public void pauseUpload(){
+		slicer.pause();
+	}
+
+	public void resumeUpload(){
+		slicer.unPause();
+	}
 	
 
 }
