@@ -52,6 +52,11 @@ RobustUploaderCompositeInstance.mainBus.addHandler(RobustUploaderEvent.TYPE, new
 		}
 		});
 
+//To Pause/Resume the Upload manually for some reason you can use ::
+RobustUploaderCompositeInstance.pause();
+RobustUploaderCompositeInstance.resume();
+
+
 
 
 //To get the file stream corresponding to the token once the upload is finished 
