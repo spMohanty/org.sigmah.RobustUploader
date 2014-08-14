@@ -1,0 +1,2 @@
+serviceClass: org.sigmah.client.GreetingService
+path: 8F9E842440B927411D3B55A3A8DEB0CB.gwt.rpc

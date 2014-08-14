@@ -1,0 +1,11 @@
+<project-modules id="moduleCoreId" project-version="2.0">
+  <wb-module deploy-name="RobustUploader">
+    <property name="context-root" value="RobustUploader"/>
+    <wb-resource deploy-path="/" source-path="src/main/webapp"/>
+    <property name="java-output-path" value="/target/www/WEB-INF/classes"/>
+    <dependent-module archiveName="gwt-servlet-2.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/var/M2_REPO/com/google/gwt/gwt-servlet/2.6.1/gwt-servlet-2.6.1.jar">
+      <dependency-type>uses</dependency-type>
+    </dependent-module>
+    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+  </wb-module>
+</project-modules>
