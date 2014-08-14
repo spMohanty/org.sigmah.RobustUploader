@@ -127,11 +127,11 @@ public class FileUploadComposite_FileUploadCompositeUiBinderImpl implements UiBi
       // Setup section.
 
       // Attach section.
-      UiBinderUtil.TempAttachment attachRecord2 = UiBinderUtil.attachToDom(htmlPanel.getElement());
+      UiBinderUtil.TempAttachment attachRecord0 = UiBinderUtil.attachToDom(htmlPanel.getElement());
       get_domId0Element().get();
 
       // Detach section.
-      attachRecord2.detach();
+      attachRecord0.detach();
       htmlPanel.addAndReplaceElement(get_f_AbsolutePanel1(), get_domId0Element().get());
 
       this.owner.htmlPanel = htmlPanel;
