@@ -6,6 +6,9 @@ import org.sigmah.client.RobustUploaderUtils;
 import org.sigmah.shared.RobustUploaderEventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
+
+import org.sigmah.client.RobustUploaderUtils.ROBUST_UPLOADER_EVENTS;
+
 // The object of this class will be sent through the event bus when RobustUploaderEvent is fired
 public class RobustUploaderEvent extends GwtEvent<RobustUploaderEventHandler>{
 
@@ -15,8 +18,11 @@ public class RobustUploaderEvent extends GwtEvent<RobustUploaderEventHandler>{
 	private String message;
 	private HashMap dataObject;
 	
+	private RobustUploaderUtils.ROBUST_UPLOADER_EVENTS eventtype;
+	
 	public RobustUploaderEvent(RobustUploaderUtils.ROBUST_UPLOADER_EVENTS eventtype, HashMap dataObject){
 		this.dataObject = dataObject;
+		this.eventtype = eventtype;
 	}
 	
 	public HashMap getDataObject(){
@@ -33,4 +39,7 @@ public class RobustUploaderEvent extends GwtEvent<RobustUploaderEventHandler>{
 		return TYPE;
 	}
 
+	public RobustUploaderUtils.ROBUST_UPLOADER_EVENTS getEventType() {
+		return this.eventtype;
+	}
 }
