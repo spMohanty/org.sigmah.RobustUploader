@@ -8,6 +8,7 @@ To run the project follow these steps ::
 1) git clone https://github.com/spMohanty/org.sigmah.RobustUploader.git
 2) cd org.sigmah.RobustUploader
 3) mvn install
+4) Create a folder called "DataStore" inside Tomcats bin folder and give it correct permissions so that it is writable by Tomcat.
 4) mvn gwt:run
 
 
