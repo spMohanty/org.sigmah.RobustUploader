@@ -1,2 +1,0 @@
-serviceClass: org.sigmah.client.SlicedFileService
-path: 44B90526AD7C80954B50B92470FF4526.gwt.rpc
